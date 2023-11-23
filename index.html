@@ -1,14 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Diaz Vaca Ramiro Wualter">
-    <meta name="description"content="practica con javascrips"/>
-    <meta name="keywords"content="practica con js"/> 
-    <title>Document</title>
+  <link rel="stylesheet" href="./css/trabajo5.css">
+  <title>Generación</title>
 </head>
-<body><p></p>
-    <script src="./js/practica4.js"></script>
+<body>
+  <h1>Generación</h1>
+  <label for="edad">Ingresa tu año de nacimiento:</label>
+  <input type="number" id="edad">
+  <button onclick="mostrarGeneracion()">Mostrar Generación</button>
+  <p id="generacion"></p>
+
+  <script>
+    function mostrarGeneracion() {
+      // Obtener el valor del campo de entrada de edad
+      const edadUsuario = parseInt(document.getElementById("edad").value);
+      
+      // Obtener el año actual
+      const añoActual = new Date().getFullYear();
+      
+      // Calcular la generación basada en el año de nacimiento
+      let generacion = '';
+      
+      if (edadUsuario >= 1946 && edadUsuario <= 1968) {
+        generacion = 'Baby Boomer';
+      } else if (edadUsuario >= 1969 && edadUsuario <= 1980) {
+        generacion = 'Generación X';
+      } else if (edadUsuario >= 1981 && edadUsuario <= 1993) {
+        generacion = 'Generación Y (Millennials)';
+      } else if (edadUsuario >= 1994 && edadUsuario <= 2012) {
+        generacion = 'Generación Z';
+      } 
+      else if (edadUsuario >= 1930 && edadUsuario <= 1945) {
+        generacion = 'silent generation';
+      }
+      else {
+        generacion = 'Desconocida';
+      }
+      
+      // Mostrar la generación en el elemento con el id "generacion"
+      document.getElementById("generacion").textContent = `Tu generación es: ${generacion}`;
+    
+    }
+  </script>
+  <img src="./img/Imagen de WhatsApp 2023-11-21 a las 21.00.51_db2150c7.jpg" alt="">
 </body>
 </html>
